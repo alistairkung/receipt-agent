@@ -1,16 +1,17 @@
 from pathlib import Path
 
-from hw1 import image_data_url, load_env_file
-from lib.receipt_calculator import ReceiptCalculator
-from lib.receipt_extractor import build_receipt_extraction_chain
+from dotenv import load_dotenv
 from langchain_deepseek import ChatDeepSeek
 import os
 
+from lib.receipt_calculator import ReceiptCalculator
+from lib.receipt_extractor import build_receipt_extraction_chain
 from lib.receipt_validator import ReceiptValidator
+from receipt_agent.pipeline import image_data_url
 
 
 def extract_receipt():
-    load_env_file()
+    load_dotenv()
 
     api_key = os.environ["DEEPSEEK_API_KEY"]
 
