@@ -112,7 +112,7 @@ class ReceiptValidator:
 
     def _validate_item_amounts_are_non_negative(self, receipt: dict[str, Any]) -> None:
         if not all(item["original_line_amount"] >= 0 for item in receipt["items"]):
-            raise ValueError("Item amounts must be positive")
+            raise ValueError("Item amounts cannot be negative")
 
     def _validate_discount_amounts_are_non_negative(
         self, receipt: dict[str, Any]
